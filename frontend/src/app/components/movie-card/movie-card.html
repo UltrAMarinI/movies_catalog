@@ -1,0 +1,24 @@
+<div
+  style="width: 350px; display: flex; justify-content: center; align-items: end"
+>
+  <!-- Header -->
+  <header>
+    <img
+      [src]="movie.poster"
+      [alt]="'Постер фильма ' + movie.title"
+      width="300"
+      height="450"
+      loading="lazy"
+    />
+    <h3>{{ movie.title }}</h3>
+    <div>
+      <span style="margin-right: 10px">{{ movie.year }}</span>
+      <span>{{ movie.rating }}/10</span>
+    </div>
+  </header>
+
+  <!-- Footer -->
+  <footer>
+    <button aria-label="Добавить в избранное">♥</button>
+  </footer>
+</div>

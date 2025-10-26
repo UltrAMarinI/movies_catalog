@@ -1,0 +1,30 @@
+{
+  "name": "movies-catalog",
+  "version": "1.0.0",
+  "description": "Fullstack movies catalog with Angular frontend and Node.js backend",
+  "scripts": {
+    "install:all": "npm install && npm run install:frontend && npm run install:backend",
+    "install:frontend": "cd frontend && npm install",
+    "install:backend": "cd backend && npm install",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && ng serve",
+    "dev:backend": "cd backend && npm run dev",
+    "start": "concurrently \"npm run start:frontend\" \"npm run start:backend\"",
+    "start:frontend": "cd frontend && ng build && ng serve",
+    "start:backend": "cd backend && npm start",
+    "build": "npm run build:frontend && npm run build:backend",
+    "build:frontend": "cd frontend && ng build",
+    "build:backend": "cd backend && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  },
+  "keywords": [
+    "angular",
+    "nodejs",
+    "movies",
+    "fullstack"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
