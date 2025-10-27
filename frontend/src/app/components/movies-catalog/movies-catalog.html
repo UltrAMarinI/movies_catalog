@@ -1,1 +1,8 @@
-<app-movie-list [moviesArray]="moviesListArray"></app-movie-list>
+<div class="catalog">
+  <div class="catalog__header">
+    <h1 class="catalog__title">Каталог фильмов</h1>
+    <app-movie-search class="catalog__search" (searchMovie)="onSearch($event)"></app-movie-search>
+  </div>
+
+  <app-movie-list class="catalog__list" [moviesArray]="displayedMovies"></app-movie-list>
+</div>

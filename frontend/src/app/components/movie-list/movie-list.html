@@ -1,7 +1,9 @@
 <div class="movies-container">
-  @for (movie of moviesArray; track $index) {
+  @for (movie of moviesArray(); track $index) {
   <div class="movie-card">
     <app-movie-card [movieCard]="movie"></app-movie-card>
   </div>
+  } @if (moviesArray().length === 0) {
+  <div class="no-results">Фильмы не найдены</div>
   }
 </div>

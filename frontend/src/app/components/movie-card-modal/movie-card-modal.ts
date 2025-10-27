@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -11,23 +11,23 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [MatButtonModule, MatIconModule],
   templateUrl: './movie-card-modal.html',
   styleUrl: './movie-card-modal.scss',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MovieCardModal implements OnInit {
-  readonly dialogRef = inject(MatDialogRef<MovieCardModal>);
+export class MovieCardModal {
   readonly data = inject<MovieInterface>(MAT_DIALOG_DATA);
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private dialogRef: MatDialogRef<MovieCardModal>
+  ) {}
 
-  ngOnInit(): void {
-    console.log(this.data.id);
-  }
-
-  onNoClick(): void {
+  closeDialog(): void {
     this.dialogRef.close();
   }
 
-  moreDetails() {
+  moreDetails(): void {
     this.router.navigate([`${Urls.details}/${this.data.id}`]);
-    this.onNoClick();
+    this.closeDialog();
   }
 }

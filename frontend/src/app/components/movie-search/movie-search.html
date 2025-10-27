@@ -1,4 +1,21 @@
-<div>
-    <h1>Каталог фильмов</h1>
-    <input>
-</div>
+<mat-form-field>
+  <mat-label>Поиск фильма</mat-label>
+  <input
+    matInput
+    type="text"
+    [formControl]="serachControl"
+    placeholder="Введите название"
+  />
+  <mat-icon matPrefix>search</mat-icon>
+
+  @if (serachControl.value) {
+  <button
+    matSuffix
+    mat-icon-button
+    aria-label="Очистить поиск"
+    (click)="clearSearch()"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+  }
+</mat-form-field>

@@ -6,6 +6,20 @@
   cursor: pointer;
   transition: 0.3s;
   height: 400px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &_title {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #333;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
 }
 
 .movie-card:hover {
@@ -31,21 +45,7 @@
   display: block;
 }
 
-.movie-card__info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.movie-card__title {
-  margin: 0 0 8px 0;
-  font-size: 18px;
-  color: #333;
-  font-weight: 600;
-  text-align: center;
-}
-
-.movie-card__year {
+.movie-card_ .movie-card__year {
   color: #666;
   font-weight: 500;
 }
