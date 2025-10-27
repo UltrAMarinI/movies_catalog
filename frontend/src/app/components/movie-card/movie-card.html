@@ -1,24 +1,18 @@
-<div
-  style="width: 350px; display: flex; justify-content: center; align-items: end"
->
-  <!-- Header -->
-  <header>
-    <img
-      [src]="movie.poster"
-      [alt]="'Постер фильма ' + movie.title"
-      width="300"
-      height="450"
-      loading="lazy"
-    />
-    <h3>{{ movie.title }}</h3>
-    <div>
-      <span style="margin-right: 10px">{{ movie.year }}</span>
-      <span>{{ movie.rating }}/10</span>
+<div class="movie-card" (click)="openDialog()">
+  <div class="movie-card__header">
+    <div class="movie-card__poster">
+      <img
+        class="movie-card__image"
+        [src]="movieCard.poster"
+        [alt]="'Постер фильма ' + movieCard.title"
+        width="300"
+        height="450"
+        loading="lazy"
+      />
     </div>
-  </header>
-
-  <!-- Footer -->
-  <footer>
-    <button aria-label="Добавить в избранное">♥</button>
-  </footer>
+    <div class="movie-card__info">
+      <h3 class="movie-card__title">{{ movieCard.title }}</h3>
+      <div class="movie-card__year">{{ movieCard.year }}</div>
+    </div>
+  </div>
 </div>

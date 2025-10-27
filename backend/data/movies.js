@@ -1,102 +1,102 @@
-const Movie = require('../models/Movie');
+const Movie = require("../models/Movie");
 
 const movies = [
   new Movie(
     1,
-    "Inception",
+    "Начало",
     2010,
-    ["Sci-Fi", "Action", "Thriller"],
+    ["Научная фантастика", "Боевик", "Триллер"],
     8.8,
-    "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-    "https://example.com/posters/inception.jpg",
-    "Christopher Nolan",
+    "Вор, который крадет корпоративные секреты с помощью технологии совместного использования снов, получает обратную задачу - внедрить идею в сознание генерального директора.",
+    "https://m.media-amazon.com/images/M/MV5BZjhkNjM0ZTMtNGM5MC00ZTQ3LTk3YmYtZTkzYzdiNWE0ZTA2XkEyXkFqcGc@._V1_.jpg",
+    "Кристофер Нолан",
     148,
-    ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]
+    ["Леонардо ДиКаприо", "Джозеф Гордон-Левитт", "Эллен Пейдж"]
   ),
   new Movie(
     2,
-    "The Shawshank Redemption",
+    "Побег из Шоушенка",
     1994,
-    ["Drama"],
+    ["Драма"],
     9.3,
-    "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-    "https://example.com/posters/shawshank.jpg",
-    "Frank Darabont",
+    "Два заключенных сближаются на протяжении многих лет, находя утешение и eventual искупление через акты обычной порядочности.",
+    "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg ",
+    "Фрэнк Дарабонт",
     142,
-    ["Tim Robbins", "Morgan Freeman", "Bob Gunton"]
+    ["Тим Роббинс", "Морган Фриман", "Боб Гантон"]
   ),
   new Movie(
     3,
-    "The Dark Knight",
+    "Темный рыцарь",
     2008,
-    ["Action", "Crime", "Drama"],
+    ["Боевик", "Криминал", "Драма"],
     9.0,
-    "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
-    "https://example.com/posters/dark-knight.jpg",
-    "Christopher Nolan",
+    "Когда угроза по имени Джокер сеет хаос и разрушение среди жителей Готэма, Бэтмен должен пройти одно из величайших психологических и физических испытаний своей способности бороться с несправедливостью.",
+    "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_FMjpg_UX1000_.jpg",
+    "Кристофер Нолан",
     152,
-    ["Christian Bale", "Heath Ledger", "Aaron Eckhart"]
+    ["Кристиан Бэйл", "Хит Леджер", "Аарон Экхарт"]
   ),
   new Movie(
     4,
-    "Pulp Fiction",
+    "Криминальное чтиво",
     1994,
-    ["Crime", "Drama"],
+    ["Криминал", "Драма"],
     8.9,
-    "The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
-    "https://example.com/posters/pulp-fiction.jpg",
-    "Quentin Tarantino",
+    "Жизни двух киллеров мафии, боксера, гангстера и его жены, а также пары грабителей закусочных переплетаются в четырех историях о насилии и искуплении.",
+    "https://m.media-amazon.com/images/I/81UTs3sC5hL._AC_UF894,1000_QL80_.jpg",
+    "Квентин Тарантино",
     154,
-    ["John Travolta", "Uma Thurman", "Samuel L. Jackson"]
+    ["Джон Траволта", "Ума Турман", "Сэмюэл Л. Джексон"]
   ),
   new Movie(
     5,
-    "Forrest Gump",
+    "Форрест Гамп",
     1994,
-    ["Drama", "Romance"],
+    ["Драма", "Романтика"],
     8.8,
-    "The presidencies of Kennedy and Johnson, the Vietnam War, the Watergate scandal and other historical events unfold from the perspective of an Alabama man with an IQ of 75, whose only desire is to be reunited with his childhood sweetheart.",
-    "https://example.com/posters/forrest-gump.jpg",
-    "Robert Zemeckis",
+    "Периоды президентства Кеннеди и Джонсона, война во Вьетнаме, Уотергейтский скандал и другие исторические события разворачиваются с точки зрения жителя Алабамы с IQ 75, чье единственное желание - воссоединиться с возлюбленной детства.",
+    "https://m.media-amazon.com/images/I/71Kih9pBDyL._AC_UF1000,1000_QL80_.jpg",
+    "Роберт Земекис",
     142,
-    ["Tom Hanks", "Robin Wright", "Gary Sinise"]
+    ["Том Хэнкс", "Робин Райт", "Гэри Синиз"]
   ),
   new Movie(
     6,
-    "The Matrix",
+    "Матрица",
     1999,
-    ["Action", "Sci-Fi"],
+    ["Боевик", "Научная фантастика"],
     8.7,
-    "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
-    "https://example.com/posters/matrix.jpg",
-    "Lana Wachowski, Lilly Wachowski",
+    "Компьютерный хакер узнает от таинственных повстанцев об истинной природе своей реальности и своей роли в войне против ее контроллеров.",
+    "https://upload.wikimedia.org/wikipedia/en/thumb/d/db/The_Matrix.png/250px-The_Matrix.png",
+    "Лана Вачовски, Лилли Вачовски",
     136,
-    ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"]
+    ["Киану Ривз", "Лоренс Фишберн", "Кэрри-Энн Мосс"]
   ),
   new Movie(
     7,
-    "Goodfellas",
+    "Славные парни",
     1990,
-    ["Biography", "Crime", "Drama"],
+    ["Биография", "Криминал", "Драма"],
     8.7,
-    "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners Jimmy Conway and Tommy DeVito in the Italian-American crime syndicate.",
-    "https://example.com/posters/goodfellas.jpg",
-    "Martin Scorsese",
+    "История Генри Хилла и его жизни в мафии, охватывающая его отношения с женой Карен Хилл и партнерами по мафии Джимми Конвеем и Томми ДеВито в итало-американском преступном синдикате.",
+    "https://m.media-amazon.com/images/M/MV5BN2E5NzI2ZGMtY2VjNi00YTRjLWI1MDUtZGY5OWU1MWJjZjRjXkEyXkFqcGc@._V1_.jpg",
+    "Мартин Скорсезе",
     146,
-    ["Robert De Niro", "Ray Liotta", "Joe Pesci"]
+    ["Роберт Де Ниро", "Рэй Лиотта", "Джо Пеши"]
   ),
   new Movie(
     8,
-    "Interstellar",
+    "Интерстеллар",
     2014,
-    ["Adventure", "Drama", "Sci-Fi"],
+    ["Приключения", "Драма", "Научная фантастика"],
     8.6,
-    "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
-    "https://example.com/posters/interstellar.jpg",
-    "Christopher Nolan",
+    "Команда исследователей путешествует через червоточину в космосе в попытке обеспечить выживание человечества.",
+    "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ11DtS2HHLba5FaL0Pp7FhOrxi2huOesValmjDLYr-HgS_lI7xLNosgToP1n5kTPm1JDQpLe2SxoCIljKcWK2uCrgVDFCNIpl1dHY7W0Q",
+    "Кристофер Нолан",
     169,
-    ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"]
-  )
+    ["Мэттью Макконахи", "Энн Хэтэуэй", "Джессика Честейн"]
+  ),
 ];
 
 module.exports = movies;

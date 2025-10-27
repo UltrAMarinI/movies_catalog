@@ -1,0 +1,7 @@
+<div class="movies-container">
+  @for (movie of moviesArray; track $index) {
+  <div class="movie-card">
+    <app-movie-card [movieCard]="movie"></app-movie-card>
+  </div>
+  }
+</div>

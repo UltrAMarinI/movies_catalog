@@ -1,0 +1,40 @@
+<div class="movie-details">
+    <button class="movie-details__close" (click)="onNoClick()" mat-icon-button>
+    <mat-icon>close</mat-icon>
+  </button>
+  <div class="movie-details__poster">
+    <img
+      class="movie-details__image"
+      [src]="data.poster"
+      [alt]="'Постер фильма ' + data.title"
+      width="200"
+      height="325"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="movie-details__content">
+    <h3 class="movie-details__title">{{ data.title }}</h3>
+    <div class="movie-details__year">{{ data.year }}</div>
+
+    <div class="movie-details__genres">
+      @for (genre of data.genre; track $index) {
+      <span class="movie-details__genre">{{ genre }}</span>
+      }
+    </div>
+
+    <div class="movie-details__description">{{ data.description }}</div>
+
+    <div class="movie-details__footer">
+      <div class="movie-details__rating">{{ data.rating }}/10</div>
+      <button
+        class="movie-details__button"
+        mat-button
+        color="primary"
+        (click)="moreDetails()"
+      >
+        Детали
+      </button>
+    </div>
+  </div>
+</div>
