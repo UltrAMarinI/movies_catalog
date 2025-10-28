@@ -31,9 +31,9 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieSearch implements OnInit {
-  readonly searchControl = new FormControl<string>('');
+  public readonly searchControl = new FormControl<string>('');
 
-  readonly destroyRef = inject(DestroyRef);
+  private readonly destroyRef = inject(DestroyRef);
 
   @Output() searchMovie = new EventEmitter<string>();
 
@@ -43,7 +43,7 @@ export class MovieSearch implements OnInit {
       .subscribe((value) => this.searchMovie.emit(value || ''));
   }
 
-  clearSearch(): void {
+  public clearSearch(): void {
     this.searchControl.setValue('');
   }
 }

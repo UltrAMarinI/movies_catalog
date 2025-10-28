@@ -24,9 +24,9 @@ import { MatButtonModule } from '@angular/material/button';
 export class MoviesCatalog implements OnInit {
   public moviesListArray: MovieInterface[] = [];
 
-  readonly displayedMovies = signal<MovieInterface[]>([]);
-  readonly loading = signal(true);
-  readonly error = signal<string | null>(null);
+  public readonly displayedMovies = signal<MovieInterface[]>([]);
+  public readonly loading = signal(true);
+  public readonly error = signal<string | null>(null);
 
   constructor(
     private movieService: MovieService,
@@ -52,6 +52,10 @@ export class MoviesCatalog implements OnInit {
     this.displayedMovies.set(foundFilms);
   }
 
+  public retryLoad(): void {
+    this.loadMovies();
+  }
+
   private loadMovies(): void {
     this.loading.set(true);
     this.error.set(null);
@@ -65,15 +69,10 @@ export class MoviesCatalog implements OnInit {
           this.displayedMovies.set(movies);
           this.loading.set(false);
         },
-        error: (err) => {
+        error: () => {
           this.error.set('Не удалось загрузить фильмы. Попробуйте позже.');
           this.loading.set(false);
-          console.error('Error loading movies:', err);
         },
       });
-  }
-
-  public retryLoad(): void {
-    this.loadMovies();
   }
 }

@@ -23,14 +23,14 @@ import { Urls } from '../../core/enums/urls.enum';
 })
 export class MovieDetails implements OnInit {
   public movieDetail!: MovieInterface;
-  readonly loading = signal(true);
-  readonly error = signal<string | null>(null);
+  public readonly loading = signal(true);
+  public readonly error = signal<string | null>(null);
 
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
     private router: Router,
-    private destroyRef: DestroyRef,
+    private destroyRef: DestroyRef
   ) {}
 
   ngOnInit(): void {
@@ -41,27 +41,26 @@ export class MovieDetails implements OnInit {
     }
   }
 
+  public closeDetail(): void {
+    this.router.navigate([Urls.catalog]);
+  }
+
   private loadDetails(id: string): void {
     this.loading.set(true);
     this.error.set(null);
 
     this.movieService
-      .getOne(id)
+      .getMovieById(id)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (movie) => {
           this.movieDetail = movie;
           this.loading.set(false);
         },
-        error: (err) => {
+        error: () => {
           this.error.set('Ошибка загрузки. Попробуйте перезагрузить страницу.');
           this.loading.set(false);
-          console.log('Error loading details', err);
         },
       });
-  }
-
-  public closeDetail(): void {
-    this.router.navigate([Urls.catalog]);
   }
 }

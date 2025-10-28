@@ -8,7 +8,4 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.scss',
   standalone: true,
 })
-export class App {
-  protected readonly title = signal('movies_catalog');
-
-}
+export class App {}
