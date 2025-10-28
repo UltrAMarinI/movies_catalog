@@ -3,38 +3,65 @@ import {
   Component,
   DestroyRef,
   OnInit,
+  signal,
 } from '@angular/core';
 import { MovieService } from '../../core/services/movie.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MovieInterface } from '../../core/interfaces/movie.interface';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIcon } from '@angular/material/icon';
+import { Urls } from '../../core/enums/urls.enum';
 
 @Component({
   selector: 'app-movie-details',
-  imports: [],
+  imports: [MatProgressSpinnerModule, MatIcon],
   templateUrl: './movie-details.html',
   styleUrl: './movie-details.scss',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieDetails implements OnInit {
+  public movieDetail!: MovieInterface;
+  readonly loading = signal(true);
+  readonly error = signal<string | null>(null);
+
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
-    private destroyRef: DestroyRef
+    private router: Router,
+    private destroyRef: DestroyRef,
   ) {}
 
   ngOnInit(): void {
     const movieId = this.route.snapshot.paramMap.get('id');
 
-    if (!movieId) {
-      return;
+    if (movieId) {
+      this.loadDetails(movieId);
     }
+  }
+
+  private loadDetails(id: string): void {
+    this.loading.set(true);
+    this.error.set(null);
 
     this.movieService
-      .getOne(movieId)
+      .getOne(id)
       .pipe(takeUntilDestroyed(this.destroyRef))
-      .subscribe((movie) => {
-        console.log(movie);
+      .subscribe({
+        next: (movie) => {
+          this.movieDetail = movie;
+          this.loading.set(false);
+        },
+        error: (err) => {
+          this.error.set('Ошибка загрузки. Попробуйте перезагрузить страницу.');
+          this.loading.set(false);
+          console.log('Error loading details', err);
+        },
       });
+  }
+
+  public closeDetail(): void {
+    this.router.navigate([Urls.catalog]);
   }
 }

@@ -21,7 +21,7 @@ export class MovieCard {
 
   @Input() movieCard!: MovieInterface;
 
-  openDialog(): void {
+  public openDialog(): void {
     this.dialog.open(MovieCardModal, {
       data: this.movieCard,
     });

@@ -1,8 +1,27 @@
-<div class="catalog">
+<main class="catalog">
+  @if (loading()) {
+  <div class="catalog__loading">
+    <mat-spinner></mat-spinner>
+    <p>Загружаем фильмы...</p>
+  </div>
+  } @if (error()) {
+  <div class="catalog__error">
+    <p>{{ error() }}</p>
+    <button matButton="filled" (click)="retryLoad()">Попробовать снова</button>
+  </div>
+  } @if (!loading() && !error()) {
+
   <div class="catalog__header">
-    <h1 class="catalog__title">Каталог фильмов</h1>
-    <app-movie-search class="catalog__search" (searchMovie)="onSearch($event)"></app-movie-search>
+    <h1 class="catalog__header_title">Каталог фильмов</h1>
+    <app-movie-search
+      class="catalog__header_search"
+      (searchMovie)="onSearch($event)"
+    ></app-movie-search>
   </div>
 
-  <app-movie-list class="catalog__list" [moviesArray]="displayedMovies"></app-movie-list>
-</div>
+  <app-movie-list
+    class="catalog__list"
+    [moviesArray]="displayedMovies"
+  ></app-movie-list
+  >}
+</main>

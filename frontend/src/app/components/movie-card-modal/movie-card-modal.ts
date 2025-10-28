@@ -22,11 +22,11 @@ export class MovieCardModal {
     private dialogRef: MatDialogRef<MovieCardModal>
   ) {}
 
-  closeDialog(): void {
+  public closeDialog(): void {
     this.dialogRef.close();
   }
 
-  moreDetails(): void {
+  public moreDetails(): void {
     this.router.navigate([`${Urls.details}/${this.data.id}`]);
     this.closeDialog();
   }

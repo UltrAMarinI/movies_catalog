@@ -1,8 +1,14 @@
-<div class="movie-card" (click)="openDialog()">
+<article
+  class="movie-card"
+  (click)="openDialog()"
+  tabindex="0"
+  role="button"
+  aria-label="Открыть details о фильме {{ movieCard.title }}"
+>
   <div class="movie-card__header">
     <div class="movie-card__poster">
       <img
-        class="movie-card__image"
+        class="movie-card__poster_image"
         [src]="movieCard.poster"
         [alt]="'Постер фильма ' + movieCard.title"
         width="300"
@@ -10,9 +16,9 @@
         loading="lazy"
       />
     </div>
-    <div class="movie-card__info">
-      <h3 class="movie-card__info_title">{{ movieCard.title }}</h3>
+    <div class="movie-card__content">
+      <h3 class="movie-card__title">{{ movieCard.title }}</h3>
       <div class="movie-card__year">{{ movieCard.year }}</div>
     </div>
   </div>
-</div>
+</article>

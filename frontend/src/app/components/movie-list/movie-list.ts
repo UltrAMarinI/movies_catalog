@@ -10,6 +10,7 @@ import { MovieCard } from '../movie-card/movie-card';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
 export class MovieList {
   @Input() moviesArray!: WritableSignal<MovieInterface[]>;
 }

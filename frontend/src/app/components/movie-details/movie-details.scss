@@ -1,0 +1,98 @@
+.movie {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  &__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ffffff85;
+    border-radius: 50%;
+    border: none;
+  }
+
+  &__loading {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+    color: #666;
+  }
+
+  &__error {
+    text-align: center;
+    padding: 60px 0;
+    color: #bc1541;
+
+    p {
+      margin-bottom: 20px;
+      font-size: 28px;
+      line-height: 2;
+    }
+  }
+
+  &__poster {
+    flex: 1;
+    min-width: 250px;
+    max-width: 400px;
+
+    img {
+      width: 100%;
+      border-radius: 12px;
+    }
+  }
+
+  &__content {
+    flex: 2;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    &_title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    &_year {
+      color: #666;
+    }
+    &_rating {
+      background: #c655dc;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 16px;
+      font-weight: 600;
+      width: fit-content;
+    }
+    &_genres {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    &_genre {
+      background: #f0f0f0;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    &_description {
+      color: #444;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+}

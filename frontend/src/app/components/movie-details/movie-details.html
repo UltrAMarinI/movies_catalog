@@ -1,1 +1,53 @@
-<p>movie-details works!</p>
+<article class="movie">
+  <button
+    class="movie__close"
+    (click)="closeDetail()"
+    mat-icon-button
+    aria-label="Закрыть"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+
+  @if (loading()) {
+  <div class="movie__loading">
+    <mat-spinner></mat-spinner>
+    <p>Загружаем подробности...</p>
+  </div>
+  } @if (error()) {
+  <div class="movie__error">
+    <p>{{ error() }}</p>
+  </div>
+  } @if (!loading() && !error()) {
+  <div class="movie__poster">
+    <img
+      [src]="movieDetail.poster"
+      [alt]="'Постер фильма ' + movieDetail.title"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="movie__content">
+    <h1 class="movie__content_title">{{ movieDetail.title }}</h1>
+    <div class="movie__content_year">{{ movieDetail.year }}</div>
+    <div class="movie__content_rating">{{ movieDetail.rating }}/10</div>
+
+    <div class="movie__content_genres">
+      @for (genre of movieDetail.genre; track $index) {
+      <span class="movie__content_genre">{{ genre }}</span>
+      }
+    </div>
+
+    <p class="movie__content_description">{{ movieDetail.description }}</p>
+
+    <div class="movie__content_director">
+      <strong>Режиссер:</strong> {{ movieDetail.director }}
+    </div>
+    <div class="movie__content_duration">
+      <strong>Длительность:</strong> {{ movieDetail.duration }} мин.
+    </div>
+    <div class="movie__content_cast">
+      <strong>В ролях:</strong> {{ movieDetail.cast }}
+    </div>
+  </div>
+  }
+</article>

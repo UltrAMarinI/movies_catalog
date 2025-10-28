@@ -31,19 +31,19 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MovieSearch implements OnInit {
-  serachControl = new FormControl<string>('');
+  readonly searchControl = new FormControl<string>('');
 
   readonly destroyRef = inject(DestroyRef);
 
   @Output() searchMovie = new EventEmitter<string>();
 
   ngOnInit(): void {
-    this.serachControl.valueChanges
+    this.searchControl.valueChanges
       .pipe(debounceTime(300), takeUntilDestroyed(this.destroyRef))
-      .subscribe((value) => this.searchMovie.emit(value as string));
+      .subscribe((value) => this.searchMovie.emit(value || ''));
   }
 
   clearSearch(): void {
-    this.serachControl.setValue('');
+    this.searchControl.setValue('');
   }
 }

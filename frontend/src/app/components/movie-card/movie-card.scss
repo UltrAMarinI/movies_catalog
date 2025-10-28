@@ -7,6 +7,11 @@
   transition: 0.3s;
   height: 400px;
 
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
   &__info {
     display: flex;
     flex-direction: column;
@@ -19,33 +24,28 @@
       font-weight: 600;
       text-align: center;
     }
+
+    &_year {
+      color: #666;
+      font-weight: 500;
+    }
   }
-}
 
-.movie-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
+  &__header {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 
-.movie-card__header {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+  &__poster {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
 
-.movie-card__poster {
-  border-radius: 8px;
-  overflow: hidden;
-  margin-bottom: 12px;
-}
-
-.movie-card__image {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.movie-card_ .movie-card__year {
-  color: #666;
-  font-weight: 500;
+    &_image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
 }

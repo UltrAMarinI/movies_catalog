@@ -2,22 +2,22 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
-}
 
-.movie-card {
-  flex: 0 1 250px;
-  border-radius: 12px;
-  padding: 16px;
-  transition: transform 0.2s ease;
-}
+  &__movie-card {
+    flex: 0 1 250px;
+    border-radius: 12px;
+    padding: 16px;
+    transition: transform 0.2s ease;
 
-.movie-card:hover {
-  transform: translateY(-2px);
-}
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
 
-.no-results {
-  width: 100%;
-  text-align: center;
-  color: #666;
-  padding: 40px;
+  &__no-results {
+    width: 100%;
+    text-align: center;
+    color: #666;
+    padding: 40px;
+  }
 }

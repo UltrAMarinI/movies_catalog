@@ -1,5 +1,10 @@
-<div class="movie-details">
-    <button class="movie-details__close" (click)="closeDialog()" mat-icon-button>
+<article class="movie-details">
+  <button
+    class="movie-details__close"
+    (click)="closeDialog()"
+    mat-icon-button
+    aria-label="Закрыть окно"
+  >
     <mat-icon>close</mat-icon>
   </button>
   <div class="movie-details__poster">
@@ -14,27 +19,28 @@
   </div>
 
   <div class="movie-details__content">
-    <h3 class="movie-details__title">{{ data.title }}</h3>
-    <div class="movie-details__year">{{ data.year }}</div>
+    <header>
+      <h3 class="movie-details__content_title">{{ data.title }}</h3>
+      <div class="movie-details__content_year">{{ data.year }}</div>
+    </header>
 
-    <div class="movie-details__genres">
+    <div class="movie-details__content_genres">
       @for (genre of data.genre; track $index) {
-      <span class="movie-details__genre">{{ genre }}</span>
+      <span class="movie-details__content_genre">{{ genre }}</span>
       }
     </div>
 
-    <div class="movie-details__description">{{ data.description }}</div>
+    <p class="movie-details__content_description">{{ data.description }}</p>
 
-    <div class="movie-details__footer">
-      <div class="movie-details__rating">{{ data.rating }}/10</div>
+    <footer class="movie-details__content_footer">
+      <div class="movie-details__content_rating">{{ data.rating }}/10</div>
       <button
-        class="movie-details__button"
+        class="movie-details__content_button"
         mat-button
-        color="primary"
         (click)="moreDetails()"
       >
         Детали
       </button>
-    </div>
+    </footer>
   </div>
-</div>
+</article>
